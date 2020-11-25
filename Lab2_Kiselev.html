@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Задания по основам JS</title>
+        <style type="text/css">
+            p {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 25pt;
+            }
+            .blue_text {
+                font-family: 'Times New Roman', Times, serif;
+                color: blue;
+            }
+            .gradient_text {
+                background: linear-gradient(90deg, #ffc3bf, red 10%);
+                background-clip: text;
+                color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Абзац 1</p>
+        <p>Абзац 2</p>
+        <p>Абзац 3</p>
+        <p>Абзац 4</p>
+        <p>Абзац 5</p>
+        <p>Абзац 6</p>
+        <button id="button_1">Задание 1</button>
+        <button id="button_2">Задание 2</button>
+        <button id="button_3">Задание 3</button><br>
+        <button id="button_4">Доп. задание 1</button>
+        <button id="button_5">Доп. задание 2</button>
+        <script type="text/javascript">
+            function Sum() {
+                let nums = prompt('Введите числа через пробел');
+                nums = nums.split(' ');
+                var s = 0;
+                for (let n of nums) {
+                    s += Number(n);
+                };
+                alert('Сумма чисел равна ' + s);
+            };
+            button_1.addEventListener('click', Sum);
+        </script>
+        <script type="text/javascript">
+            function BlueText() {
+                var paragraphs = document.querySelectorAll('p');
+                for (let paragraph of paragraphs) {
+                    paragraph.classList.toggle('blue_text');
+                };
+            };
+            button_2.addEventListener('click', BlueText);
+        </script>
+        <script type="text/javascript">
+            function GradientText() {
+                var paragraphs = document.querySelectorAll('p');
+                for (let paragraph of paragraphs) {
+                    paragraph.classList.toggle('gradient_text');
+                };
+            };
+            button_3.addEventListener('click', GradientText);
+        </script>
+        <script type="text/javascript">
+            function Calc() {
+                let nums = prompt('Введите выражение (только операторы + и -, без пробелов)');
+                nums=nums.split('');
+                for (var i = 0; i < nums.length; i++) {
+                    if (nums[i] === '+') {
+                        nums[i] = ' ';
+                    };
+                    if (nums[i] === '-') {
+                        nums[i] = ' ';
+                        nums[i+1] = '-' + nums[i+1];
+                    };
+                };
+                nums = nums.join('');
+                nums = nums.split(' ');
+                var s = 0;
+                for (let n of nums) {
+                    s += Number(n);
+                };
+                alert('Выражение равно ' + s);
+            };
+            button_4.addEventListener('click', Calc);
+        </script>
+        <script type="text/javascript">
+            function EvenText() {
+                var paragraphs = document.querySelectorAll('p');
+                var c = 1;
+                for (let paragraph of paragraphs) {
+                    if (c % 2 === 0 || c % 3 === 0) {
+                        paragraph.classList.toggle('blue_text');
+                    }
+                    c++;
+                };
+            };
+            button_5.addEventListener('click', EvenText);
+        </script>
+    </body>
+</html>
